@@ -1,14 +1,13 @@
-// new
 const fs = require('fs');
 const readline = require('readline');
 
-const FILE_PATH = './tasks.json';
+const FILE_P = './tasks.json';
 
 let tasks = [];
-if (fs.existsSync(FILE_PATH)) {
-    tasks = JSON.parse(fs.readFileSync(FILE_PATH, 'utf8'));
+if (fs.existsSync(FILE_P)) {
+    tasks = JSON.parse(fs.readFileSync(FILE_P, 'utf8'));
 } else {
-    fs.writeFileSync(FILE_PATH, JSON.stringify(tasks));
+    fs.writeFileSync(FILE_P, JSON.stringify(tasks));
 }
 
 const rl = readline.createInterface({
@@ -17,7 +16,7 @@ const rl = readline.createInterface({
 });
 
 function saveTasks() {
-    fs.writeFileSync(FILE_PATH, JSON.stringify(tasks, null));
+    fs.writeFileSync(FILE_P, JSON.stringify(tasks, null));
 }
 
 function addTask() {
@@ -97,5 +96,5 @@ function mainMenu() {
     });
 }
 
-console.log('Welcome to the To-Do List Application!');
+console.log('Welcome to To-Do List App!');
 mainMenu();
